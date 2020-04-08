@@ -1,0 +1,109 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Code evolution</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style type="text/css">
+        table.diff {
+            font-family: Courier;
+            border: medium;
+            width: 100%;
+            table-layout: fixed;
+        }
+
+
+        .diff_header {
+            background-color: #e0e0e0
+        }
+
+        td.diff_header {
+            text-align: right;
+            width: 3ch;
+        }
+
+        .inner {
+            overflow-x: scroll;
+            overflow-y: visible;
+        }
+        td[nowrap="nowrap"] {
+            overflow: auto;
+        }
+
+        .diff_next {
+            background-color: #c0c0c0;
+            width: 1ch;
+        }
+
+        .diff_add {
+            background-color: #aaffaa
+        }
+
+        .diff_chg {
+            background-color: #ffff77
+        }
+
+        .diff_sub {
+            background-color: #ffaaaa
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Code metrics</h1>
+        {{ analysis }}
+
+        <h1>Changes</h1>
+        <div class="inner">
+            {{ diff_table_html }}
+        </div>
+
+        <table summary="Legends">
+            <tr>
+                <th colspan="2"> Legends </th>
+            </tr>
+            <tr>
+                <td>
+                    <table border="" summary="Colors">
+                        <tr>
+                            <th> Colors </th>
+                        </tr>
+                        <tr>
+                            <td class="diff_add">&nbsp;Added&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td class="diff_chg">Changed</td>
+                        </tr>
+                        <tr>
+                            <td class="diff_sub">Deleted</td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <table border="" summary="Links">
+                        <tr>
+                            <th colspan="2"> Links </th>
+                        </tr>
+                        <tr>
+                            <td>(f)irst change</td>
+                        </tr>
+                        <tr>
+                            <td>(n)ext change</td>
+                        </tr>
+                        <tr>
+                            <td>(t)op</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+
+    </div>
+</body>
+
+</html>
