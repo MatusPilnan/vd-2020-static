@@ -35,8 +35,8 @@ def create_loc_graphs(old, new):
     fig = px.bar(df, x='metric', y='value', color='file', barmode='group', title='Change of LOC metrics between versions')
     plots.append(po.plot(fig, output_type='div'))
 
-    loc_df = pd.DataFrame([loc['old']]).drop(columns=['loc', 'lloc'])
-    loc_df2 = pd.DataFrame([loc['new']]).drop(columns=['loc', 'lloc'])
+    loc_df = pd.DataFrame([loc['old']]).drop(columns=['loc', 'lloc', 'comments'])
+    loc_df2 = pd.DataFrame([loc['new']]).drop(columns=['loc', 'lloc', 'comments'])
     fig2 = make_subplots(rows=1, cols=2, specs=[[{'type':'domain'}, {'type':'domain'}]], subplot_titles=['LOC Metrics in old version', 'LOC Metrics in new version'])
     fig2.add_pie(labels=list(loc_df.columns), values=list(loc_df.iloc[0]), title='Old version', row=1, col=1)
     fig2.add_pie(labels=list(loc_df2.columns), values=list(loc_df2.iloc[0]), title='New version', row=1, col=2)
